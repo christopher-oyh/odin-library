@@ -14,6 +14,14 @@ function addBookToLibrary(book, library) {
   displayBook(book, library.length);
 }
 
+function refreshBooklist() {
+  const books = document.querySelectorAll(".book");
+  for (const book of books) {
+    book.remove();
+  }
+  displayBooklist(myLibrary);
+}
+
 function displayBook(book, index) {
   const newBook = document.createElement("div");
   newBook.classList.add("book", "card");
@@ -112,6 +120,7 @@ confirmAddBookButton.addEventListener("click", (e) => {
 });
 
 const books = document.querySelector(".books");
+
 books.addEventListener("click", (event) => {
   const target = event.target;
   const targetBookIndex = target.parentNode.dataset.indexNumber;
