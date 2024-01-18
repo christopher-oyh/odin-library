@@ -1,0 +1,162 @@
+:root {
+  --lighter-grey: #f8fafc;
+  --light-grey: #e2e8f0;
+  --grey: #94a3b8;
+  --green: #4ade80;
+  --dark-green: #22c55e;
+  --red: #f87171;
+  --gap-xxs: 4px;
+  --gap-xs: 8px;
+  --gap-s: 12px;
+  --gap-m: 16px;
+  --gap-l: 24px;
+  --gap-xl: 36px;
+  --gap-xxl: 48px;
+  --container-width: 1200px;
+  --shadow: 0px 1px 2px 3px var(--light-grey);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url(fonts/Roboto/Roboto-Regular.ttf);
+}
+
+body {
+  font-family: system-ui, "Roboto", sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+header {
+  box-shadow: var(--shadow);
+  z-index: 1;
+}
+
+main,
+footer {
+  background-color: var(--lighter-grey);
+}
+
+main {
+  flex: 1;
+  padding: var(--gap-m) 0;
+}
+
+.container {
+  max-width: var(--container-width);
+  padding: var(--gap-l);
+  margin: auto;
+}
+
+main .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--gap-l);
+}
+
+main .cards .card {
+  background-color: white;
+  box-shadow: var(--shadow);
+  padding: var(--gap-xl);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-xs);
+}
+
+main .cards .card button {
+  padding: 8px 0;
+  background-color: var(--light-grey);
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+main .cards .card button.read {
+  background-color: var(--green);
+}
+
+main .cards .card button.remove-book {
+  background-color: var(--red);
+}
+
+main .card #add-book {
+  background-color: var(--lighter-grey);
+  color: var(--grey);
+  font-weight: bold;
+  font-size: 1.5rem;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .card#add-book:hover {
+  background-color: white;
+}
+
+main .card#add-book .plus {
+  font-size: 5rem;
+  font-weight: 100;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+
+  padding: var(--gap-m);
+}
+
+dialog {
+  margin: auto;
+  border-radius: var(--gap-xs);
+  border: none;
+  background-color: var(--lighter-grey);
+}
+
+#add-book-dialog form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-s);
+  padding: var(--gap-l);
+}
+
+#add-book-dialog form .vertical {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-xxs);
+}
+
+#add-book-dialog form .horizontal {
+  display: flex;
+  gap: var(--gap-xs);
+}
+
+#add-book-dialog form button {
+  flex: 1;
+}
+
+#add-book-dialog form input,
+#add-book-dialog form button {
+  padding: var(--gap-xxs) var(--gap-xs);
+  border-radius: var(--gap-xxs);
+  border: 1px solid black;
+}
+
+::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
